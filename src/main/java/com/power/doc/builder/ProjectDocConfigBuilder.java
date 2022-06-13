@@ -108,14 +108,18 @@ public class ProjectDocConfigBuilder {
         }
         List<ApiDataDictionary> dataDictionaries = apiConfig.getDataDictionaries();
 
-        for (ApiDataDictionary dataDictionary : dataDictionaries) {
-            dataDictionary.setEnumImplementSet(getEnumImplementsByInterface(dataDictionary.getEnumClass()));
+        if(CollectionUtil.isNotEmpty(dataDictionaries)) {
+        	for (ApiDataDictionary dataDictionary : dataDictionaries) {
+        		dataDictionary.setEnumImplementSet(getEnumImplementsByInterface(dataDictionary.getEnumClass()));
+        	}
         }
 
         List<ApiErrorCodeDictionary> errorCodeDictionaries = apiConfig.getErrorCodeDictionaries();
 
-        for (ApiErrorCodeDictionary errorCodeDictionary : errorCodeDictionaries) {
-            errorCodeDictionary.setEnumImplementSet(getEnumImplementsByInterface(errorCodeDictionary.getEnumClass()));
+        if(CollectionUtil.isNotEmpty(errorCodeDictionaries)) {
+        	for (ApiErrorCodeDictionary errorCodeDictionary : errorCodeDictionaries) {
+        		errorCodeDictionary.setEnumImplementSet(getEnumImplementsByInterface(errorCodeDictionary.getEnumClass()));
+        	}
         }
     }
 
